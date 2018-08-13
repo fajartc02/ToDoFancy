@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../server/app.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '721780258213034', // ganti APP ID
+        autoLogAppEvents: true,
+        xfbml: true,
+        version: 'v3.1'
+      });
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js"
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    function checkLoginState() {
+      FB.getLoginStatus(function (response) {
+        if (response.status === 'connected') {
+          axios.post('http://localhost:3000/signin/facebook', {
+            authRes: response.authResponse
+          })
+            .then((result) => {
+              localStorage.setItem('token', result.data.token)
+              // window.location = 'http://localhost:8080/index2.html'
+            })
+            .catch(err => {
+              console.log(err);
+            })
+        }
+      });
+    }
+  </script>
+  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+  </fb:login-button>
+  <script>
+    function login() {
+      axios.post('http://localhost:3000/signin')
+        .then(response => {
+          console.log(response);
+        })
+        .catch(err => {
+          console.log(err);
+          // $("#msg").text(`You must be register`).css('color', 'red')
+        })
+    }
+  </script>
+</body>
+
+</html>
