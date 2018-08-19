@@ -5,7 +5,6 @@ const port = process.env.PORT || 3000
 const indexRouter = require('./routes/index')
 const cors = require('cors')
 const mongoose = require('mongoose')
-const axios = require('axios')
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))

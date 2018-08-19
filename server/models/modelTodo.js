@@ -3,16 +3,26 @@ const Schema = mongoose.Schema
 
 const todoSchema = new Schema ({
     task: {
-        type: String
+        type: String,
+        required: true
     },
 
     description: {
-        type: String
+        type: String,
+        required: true
+    },
+
+    plainDate: {
+        type: Date,
+        required: true
     },
 
     status: {
         type: Boolean,
         default: false
+    },
+    UserId: {
+        type: Schema.Types.ObjectId, ref: 'User'
     }
 }, {
     timestamps: true

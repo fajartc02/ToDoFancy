@@ -9,13 +9,13 @@ const userSchema = new Schema({
   email: {
     type: String,
     unique: true,
+    required: true
   },
   password: {
     type: String,
   },
   idFb: {
-    type: String,
-    required: true
+    type: String
   },
   role: {
     type: String,
