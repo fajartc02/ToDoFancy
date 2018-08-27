@@ -1,0 +1,58 @@
+.form-signin {
+    font-family: 'Lobster', cursive;
+    margin-top: 10%;
+}
+
+.input-form {
+    text-align: center;
+}
+
+.title {
+    font-family: 'Lobster', cursive;
+}
+
+h1, p {
+    font-family: 'Lobster', cursive;
+}
+
+#addTodo {
+    flex: center;
+}
+
+#msg {
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    font-size: 100px;
+    color: gray;
+}
+
+.containerCard {
+    height: 80%;
+    padding-left: 200px;
+    padding-right: 50px;
+}
+
+.cardDeck {
+    margin-right: 1px!important;
+    margin-top: 10px;
+}
+
+.subCardContainer {
+    width: 400px;
+}
+
+table {
+    font-family: 'Lobster', cursive;;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
