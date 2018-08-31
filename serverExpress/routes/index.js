@@ -2,7 +2,7 @@ const router = require('express').Router()
 const userRouter = require('./users')
 const { loginWithFacebook, signInUser, signUpUser  } = require('../controllers/controllerUsers')
 
-router.use('/users', userRouter)
+// router.use('/users', userRouter)
 
 router.post('/signin/facebook', loginWithFacebook)
 router.post('/signin', signInUser)
